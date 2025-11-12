@@ -28,7 +28,7 @@ const candidateSchema = new mongoose.Schema({
     require:true,
   },
   videoId: {
-    type: mongoose.Schema.Types.ObjectId, // GridFS file ID for video
+    type: mongoose.Schema.Types.ObjectId, 
     required: true,
   },
   createdAt: {

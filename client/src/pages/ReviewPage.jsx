@@ -31,7 +31,7 @@ function ReviewPage() {
       formData.append("experience", candidate.experience);
       formData.append("resume", file);
 
-      // add video if present
+      
       if (candidate.videoData) {
         const blob = await fetch(candidate.videoData).then((res) => res.blob());
         const videoFile = new File([blob], candidate.videoName, {
@@ -40,7 +40,7 @@ function ReviewPage() {
         formData.append("video", videoFile);
       }
 
-      // post requests
+      
       await axios.post("/api/candidate/submit", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -114,7 +114,7 @@ function ReviewPage() {
         </p>
       </div>
 
-      {/* ✅ Video Preview Section */}
+      
       {candidate.videoData && (
         <div className="mt-4 text-center">
           <h5 className="text-primary fw-bold mb-3">Video Introduction Preview</h5>

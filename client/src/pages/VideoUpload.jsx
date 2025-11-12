@@ -14,7 +14,7 @@ const VideoRecord = () => {
   const streamRef = useRef(null);
   const navigate = useNavigate();
 
-  // Start camera and show live preview
+  
   const startCamera = async () => {
     setError("");
     setVideoURL("");
@@ -28,7 +28,7 @@ const VideoRecord = () => {
     }
   };
 
-  // Stop camera manually
+ 
   const stopCamera = () => {
     if (streamRef.current) {
       streamRef.current.getTracks().forEach((track) => track.stop());
@@ -38,7 +38,7 @@ const VideoRecord = () => {
     setCameraOn(false);
   };
 
-  // Start recording
+ 
   const startRecording = async () => {
     if (!streamRef.current) {
       setError("Camera not started!");
@@ -75,7 +75,7 @@ const VideoRecord = () => {
     }, 1000);
   };
 
-  // Stop recording + stop camera
+
   const stopRecording = () => {
     if (!recording) return;
     setRecording(false);
@@ -84,7 +84,7 @@ const VideoRecord = () => {
     stopCamera();
   };
 
-  // Move to Review page with video preview
+ 
   const handleSubmit = () => 
   {
     if (!videoURL) {
@@ -117,7 +117,7 @@ const VideoRecord = () => {
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center mb-3">🎥 Video Recording</h2>
+      <h2 className="text-center mb-3"> Video Recording</h2>
 
       <p>Record a short introduction video (max 90 seconds) covering:</p>
       <ul>
@@ -129,7 +129,7 @@ const VideoRecord = () => {
 
       {error && <p className="text-danger text-center">{error}</p>}
 
-      {/* ===== Layout: Side-by-side Preview & Recorded Video ===== */}
+      
       <div className="row mt-4 align-items-start justify-content-center">
         <div className="col-md-5 text-center">
           <h5>Live Preview</h5>
@@ -151,7 +151,7 @@ const VideoRecord = () => {
         )}
       </div>
 
-      {/* ===== Control Buttons ===== */}
+      
       <div className="d-flex justify-content-center gap-3 mt-3">
         {!cameraOn && (
           <button className="btn btn-primary" onClick={startCamera}>
